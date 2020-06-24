@@ -14,7 +14,9 @@ const AddUserForm = (props) => {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if (!user.name || !user.username) return props.addUser(user);
+        if (!user.name || !user.username) return;
+
+        props.addUser(user);
         setUser(initialFormState);
       }}
     >
@@ -25,14 +27,14 @@ const AddUserForm = (props) => {
         value={user.name}
         onChange={handleInputChange}
       />
-      <label>UserName</label>
+      <label>Username</label>
       <input
         type="text"
         name="username"
         value={user.username}
         onChange={handleInputChange}
       />
-      <button>Add new User</button>
+      <button>Add new user</button>
     </form>
   );
 };
